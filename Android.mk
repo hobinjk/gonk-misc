@@ -105,15 +105,15 @@ LOCAL_FORCE_STATIC_EXECUTABLE := true	# since this is setuid root
 LOCAL_SHARED_LIBRARIES :=
 include $(BUILD_EXECUTABLE)
 
-$(OUT_DOCS)/api-stubs-timestamp:
-	mkdir -p `dirname $@`
-	touch $@
-	mkdir -p $(TARGET_OUT_COMMON_INTERMEDIATES)/JAVA_LIBRARIES/android_stubs_current_intermediates/src
+# $(OUT_DOCS)/api-stubs-timestamp:
+# 	mkdir -p `dirname $@`
+# 	touch $@
+# 	mkdir -p $(TARGET_OUT_COMMON_INTERMEDIATES)/JAVA_LIBRARIES/android_stubs_current_intermediates/src
 
-$(call intermediates-dir-for,APPS,framework-res,,COMMON)/package-export.apk:
-	mkdir -p `dirname $@`
-	touch `dirname $@`/dummy
-	zip $@ `dirname $@`/dummy
+# $(call intermediates-dir-for,APPS,framework-res,,COMMON)/package-export.apk:
+# 	mkdir -p `dirname $@`
+# 	touch `dirname $@`/dummy
+# 	zip $@ `dirname $@`/dummy
 
 
 ifneq ($(DISABLE_SOURCES_XML),true)
