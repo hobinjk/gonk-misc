@@ -200,7 +200,7 @@ $(TARGET_BLOBS_SHA1_OUT):
 .PHONY: $(TARGET_BLOBS_MAP)
 $(TARGET_BLOBS_MAP): $(TARGET_BLOBS_SHA1_OUT)
 	@rm -f $@ && touch $@; \
-	grep ':' $(TARGET_DEVICE_BLOBS) | grep -v '^\s*#' | cut -d' ' -f1 | grep ':' | while read line; \
+	grep -h ':' $(TARGET_DEVICE_BLOBS) | grep -v '^\s*#' | sed -e 's/^ *//' | sed -e 's/ *\\$$//' | grep ':[^=]' | while read line; \
 	do \
 		vendor_src=$$(echo "$$line" | cut -d':' -f1); \
 		builds_tgt=$$(echo "$$line" | cut -d':' -f2); \
